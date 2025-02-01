@@ -31,7 +31,7 @@ class T6LogReader:
         try:
             with open(self.log_path, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
-                matching_lines = [line.strip() for line in lines if f"{prefix}{command}" in line]
+                matching_lines = [line.strip() for line in lines if line.startswith(f"{prefix}{command}")]
             return matching_lines if matching_lines else [f"No occurences of '{command}' found"]
 
         except Exception as e:
