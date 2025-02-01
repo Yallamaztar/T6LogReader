@@ -4,10 +4,13 @@
 
 
 ## 🚀 Features
-- ✅ **Read the last lines of console.tlog**
-- ✅ **Search for specific commands (e.g., kick, ban)**
-- ✅ **Works dynamically for any Windows user (not tested on Linux)**
-
+- **✅ Read the last lines of console.log** 
+- **✅ Search for specific commands (e.g., kick, ban, custom commands)**
+- **✅ Count the occurrences of a command or keyword**
+- **✅ Clear the log file for a fresh start**
+- **✅ Works dynamically for any Windows user (not tested on Linux)**
+- **✅ Supports custom log file paths**
+- **✅ Efficient error handling for robustness**
 ---
 
 ## 📥 Installation
@@ -20,7 +23,8 @@ pip install T6LogReader
 
 ## 🛠 Usage
 
-- ### Read Last `number_of_lines: int` Lines
+### Read Last `number_of_lines: int` Lines
+This function allows you to read the last n lines from the log
 ```python
 from t6logreader import T6LogReader
 
@@ -30,7 +34,8 @@ print(log_reader.read_last_lines(number_of_lines=10))
 
 ----
 
-- ### Search for a Specific `command: str`
+### Search for a Specific `command: str`
+Searches for commands like "kick", "ban", etc. You can customize the prefix
 ```python
 from t6logreader import T6LogReader
 
@@ -40,12 +45,34 @@ print(log_reader.search_command(command="kick", prefix="")) # Prefix is normally
 
 ----
 
-- ### Read the Last Line
+### Read the Last Line
+Reads the most recent line from the log file
 ```python
 from t6logreader import T6LogReader
 
 log_reader = T6LogReader()
 print(log_reader.read_last_line()) 
+```
+
+---
+
+### Clear the Log File
+```python
+from t6logreader import T6LogReader
+
+log_reader = T6LogReader()
+log_reader.clear_log()
+```
+
+---
+
+### Count occurrences of a `keyword: str` | `prefix: str`
+Counts how many times a keyword (e.g., "kick") appears in the log.
+```python
+from t6logreader import T6LogReader
+
+log_reader = T6LogReader()
+print(log_reader.count_occurences(keyword="kick", prefix="]"))
 ```
 
 ---

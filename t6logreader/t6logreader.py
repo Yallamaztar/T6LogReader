@@ -36,3 +36,21 @@ class T6LogReader:
 
         except Exception as e:
             return [f"Error searching log file: {e}"]
+        
+    def clear_log(self) -> None | str:
+        try:
+            with open(self.log_path, 'w', encoding='utf-8') as file:
+                file.truncate(0)
+
+        except Exception as e:
+            return f"Error clearing log file: {e}"
+        
+    def count_occurences(self, keyword: str, prefix: str = "]") -> int | str:
+        try:
+            with open(self.log_path, 'r', encoding='utf-8') as file:
+                lines = file.readlines()
+                count = sum(1 for line in lines if line.startswith(f"{prefix}{keyword}"))
+            return count
+
+        except Exception as e:
+            return f"Error counting occurrences: {e}"
