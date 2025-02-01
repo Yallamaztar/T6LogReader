@@ -27,5 +27,5 @@ class BanPlayerPlugin:
                     self.seen_commands.append(last_line)
             time.sleep(0.5)
 
-gg = BanPlayerPlugin()
-gg.run()
+plugin = BanPlayerPlugin()
+plugin.run()
