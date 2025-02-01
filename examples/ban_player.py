@@ -1,5 +1,5 @@
 import os, time, requests
-from iw4m import IW4MWrapper
+from iw4m import IW4MWrapper # https://github.com/Yallamaztar/iw4m
 from t6logreader import T6LogReader
 
 class BanPlayerPlugin:
